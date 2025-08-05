@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Star } from "lucide-react";
 import NavBar from "@/components/NavBar";
+import { Product } from "@/types";
 
 interface ProductPageProps {
     productData: any;
@@ -20,6 +21,16 @@ interface ProductPageProps {
 const ProductPage: React.FC<ProductPageProps> = ({ productData }: ProductPageProps) => {
     const [open, setOpen] = React.useState(false);
 
+    const product: Product = {
+        id: 1,
+        description: "dis dihhh",
+        barcode: "000000001",
+        category: "Fat ahh",
+        price: 135.24,
+        inventory: 3,
+        created_at: "2025-08-01T20:42:00Z",
+    };
+
     return (
         <>
             {/* Navigation bar with logo and links */}
@@ -30,14 +41,14 @@ const ProductPage: React.FC<ProductPageProps> = ({ productData }: ProductPagePro
                 <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="h-80 bg-gray-100 rounded-lg" />
                     <div className="flex flex-col justify-center space-y-4">
-                        <h1 className="text-3xl font-bold">Amazing Product</h1>
+                        <h1 className="text-3xl font-bold">{`${product.description}`}</h1>
                         <div className="flex items-center space-x-2">
                             {Array.from({ length: 5 }).map((_, i) => (
-                                <Star key={i} className="h-5 w-5 text-pink-500" />
+                                <Star key={i} fill="#f6339a" className="h-5 w-5 text-pink-500" />
                             ))}
                         </div>
                         <p className="text-gray-700">This product is loved by professionals for its quality and results. It fits perfectly into your daily beauty routine.</p>
-                        <p className="text-xl font-semibold">$49.99</p>
+                        <p className="text-xl font-semibold">{`$${product.price}`}</p>
                         <Button onClick={() => setOpen(true)}>Add to Cart</Button>
                     </div>
                 </div>

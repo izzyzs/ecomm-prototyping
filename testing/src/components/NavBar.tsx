@@ -1,13 +1,9 @@
 "use client";
 import React from "react";
 
-import { Button } from "@/components/ui/button";
-import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import LoginModal from "@/components/LoginModal";
 
 const NavBar = () => {
-    const [open, setOpen] = React.useState(false);
     return (
         <>
             {/* Navigation bar with logo, links, and login button */}
@@ -24,34 +20,8 @@ const NavBar = () => {
                         About
                     </a>
                     {/* Login button opens a modal using Shadcn's Dialog component */}
-                    <Dialog open={open} onOpenChange={setOpen}>
-                        <DialogTrigger asChild>
-                            <Button variant="outline" size="sm">
-                                Log In
-                            </Button>
-                        </DialogTrigger>
-                        <DialogContent className="sm:max-w-md">
-                            <DialogHeader>
-                                <DialogTitle>Log in to your account</DialogTitle>
-                                <DialogDescription>Enter your credentials to access professional pricing and benefits.</DialogDescription>
-                            </DialogHeader>
-                            <form className="mt-4 space-y-3">
-                                <div className="grid gap-2">
-                                    <Label htmlFor="email">Email</Label>
-                                    <Input id="email" type="email" placeholder="name@example.com" />
-                                </div>
-                                <div className="grid gap-2">
-                                    <Label htmlFor="password">Password</Label>
-                                    <Input id="password" type="password" placeholder="••••••••" />
-                                </div>
-                                <DialogFooter>
-                                    <Button type="submit" className="w-full">
-                                        Log In
-                                    </Button>
-                                </DialogFooter>
-                            </form>
-                        </DialogContent>
-                    </Dialog>
+
+                    <LoginModal />
                 </div>
             </nav>
         </>
